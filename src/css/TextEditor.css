@@ -1,0 +1,49 @@
+/* src/components/TextEditor.css */
+.editor-container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+  }
+  
+  .editor-content {
+    padding: 20px;
+    min-height: 400px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #2c3e50;
+    overflow: auto;
+  }
+  
+  /* Estilos para tablas */
+  .ProseMirror table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .ProseMirror th,
+  .ProseMirror td {
+    border: 1px solid #bdc3c7;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .ProseMirror th {
+    background-color: #ecf0f1;
+  }
+  
+  /* Responsividad */
+  @media (max-width: 600px) {
+    .editor-container {
+      margin: 10px;
+    }
+  
+    .editor-content {
+      padding: 10px;
+    }
+  }
+  
