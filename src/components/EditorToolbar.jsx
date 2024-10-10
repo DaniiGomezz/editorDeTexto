@@ -2,6 +2,7 @@
 
 import PropTypes from "prop-types";
 import "../css/EditorToolbar.css";
+import { FaBold, FaItalic, FaUnderline, FaStrikethrough, FaLink, FaImage, FaListUl, FaListOl, FaUndo, FaRedo, FaSave, FaFolderOpen } from 'react-icons/fa';
 
 export const EditorToolbar = ({ editor }) => {
   if (!editor) {
@@ -40,44 +41,41 @@ export const EditorToolbar = ({ editor }) => {
   {
     /* Botón de Bloque de Código */
   }
-  <button
-    onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-    className={editor.isActive("codeBlock") ? "active" : ""}
-    title="Bloque de Código"
-  >
-    💻
-  </button>;
+
+  
+  
   return (
     <div className="toolbar">
       {/* Botones de Formato Básico */}
       <button
-        onClick={() => editor.chain().focus().toggleBold().run()}
-        className={editor.isActive("bold") ? "active" : ""}
-        title="Negrita"
-      >
-        <b>B</b>
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleItalic().run()}
-        className={editor.isActive("italic") ? "active" : ""}
-        title="Cursiva"
-      >
-        <i>I</i>
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleUnderline().run()}
-        className={editor.isActive("underline") ? "active" : ""}
-        title="Subrayado"
-      >
-        <u>U</u>
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleStrike().run()}
-        className={editor.isActive("strike") ? "active" : ""}
-        title="Tachado"
-      >
-        <s>S</s>
-      </button>
+    onClick={() => editor.chain().focus().toggleBold().run()}
+    className={editor.isActive('bold') ? 'active' : ''}
+    title="Negrita"
+  >
+    <FaBold />
+  </button>
+  <button
+    onClick={() => editor.chain().focus().toggleItalic().run()}
+    className={editor.isActive('italic') ? 'active' : ''}
+    title="Cursiva"
+  >
+    <FaItalic />
+  </button>
+  <button
+    onClick={() => editor.chain().focus().toggleUnderline().run()}
+    className={editor.isActive('underline') ? 'active' : ''}
+    title="Subrayado"
+  >
+    <FaUnderline />
+  </button>
+  <button
+    onClick={() => editor.chain().focus().toggleStrike().run()}
+    className={editor.isActive('strike') ? 'active' : ''}
+    title="Tachado"
+  >
+    <FaStrikethrough />
+  </button>
+  
       <button
         onClick={addLink}
         className={editor.isActive("link") ? "active" : ""}
@@ -85,10 +83,28 @@ export const EditorToolbar = ({ editor }) => {
       >
         🔗
       </button>
-      <button onClick={addImage} title="Insertar Imagen">
-        🖼️
-      </button>
+      <button onClick={addLink} className={editor.isActive('link') ? 'active' : ''} title="Insertar Enlace">
+    <FaLink />
+  </button>
+  <button onClick={addImage} title="Insertar Imagen">
+    <FaImage />
+  </button>
+        {/* Botones de Lista y Encabezados */}
 
+  <button
+    onClick={() => editor.chain().focus().toggleBulletList().run()}
+    className={editor.isActive('bulletList') ? 'active' : ''}
+    title="Lista Desordenada"
+  >
+    <FaListUl />
+  </button>
+  <button
+    onClick={() => editor.chain().focus().toggleOrderedList().run()}
+    className={editor.isActive('orderedList') ? 'active' : ''}
+    title="Lista Ordenada"
+  >
+    <FaListOl />
+  </button>
       {/* Botones de Alineación */}
       <button
         onClick={() => editor.chain().focus().setTextAlign("left").run()}
@@ -119,57 +135,20 @@ export const EditorToolbar = ({ editor }) => {
         ↔️
       </button>
 
-      {/* Botones de Lista y Encabezados */}
-      <button
-        onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={editor.isActive("bulletList") ? "active" : ""}
-        title="Lista Desordenada"
-      >
-        •••
-      </button>
-     
-      <button
-        onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={editor.isActive("orderedList") ? "active" : ""}
-        title="Lista Ordenada"
-      >
-        1. 2. 3.
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={editor.isActive("heading", { level: 1 }) ? "active" : ""}
-        title="Título 1"
-      >
-        H1
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={editor.isActive("heading", { level: 2 }) ? "active" : ""}
-        title="Título 2"
-      >
-        H2
-      </button>
-
       {/* Botones de Deshacer y Rehacer */}
-      <button
-        onClick={() => editor.chain().focus().undo().run()}
-        title="Deshacer"
-      >
-        ↶
+      <button onClick={() => editor.chain().focus().undo().run()} title="Deshacer">
+        <FaUndo />
       </button>
-      <button
-        onClick={() => editor.chain().focus().redo().run()}
-        title="Rehacer"
-      >
-        ↷
+      <button onClick={() => editor.chain().focus().redo().run()} title="Rehacer">
+        <FaRedo />
       </button>
 
       {/* Botones de Guardar y Cargar */}
       <button onClick={saveDocument} title="Guardar Documento">
-        💾
+        <FaSave />
       </button>
       <button onClick={loadDocument} title="Cargar Documento">
-        📂
+        <FaFolderOpen />
       </button>
       <button
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
