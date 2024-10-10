@@ -1,6 +1,6 @@
 // src/App.jsx
 
-import {TextEditor} from './components/EditText';
+import {TextEditor} from './components/TextEditor.jsx';
 
 
 function App() {

@@ -11,11 +11,15 @@ import Image from '@tiptap/extension-image';
 import Table from '@tiptap/extension-table';
 import TableRow from '@tiptap/extension-table-row';
 import TableCell from '@tiptap/extension-table-cell';
+import TableHeader from '@tiptap/extension-table-header';
 import Heading from '@tiptap/extension-heading';
 import BulletList from '@tiptap/extension-bullet-list';
 import OrderedList from '@tiptap/extension-ordered-list';
 import ListItem from '@tiptap/extension-list-item';
-import { EditorToolbar } from './EditorToolbar.jsx';
+import TextAlign from '@tiptap/extension-text-align'; // Importar TextAlign
+import {EditorToolbar} from './EditorToolbar.jsx';
+import CodeBlock from '@tiptap/extension-code-block'; 
+import Blockquote from '@tiptap/extension-blockquote'; // Importar Blockquote
 import '../css/TextEditor.css';
 
 export const TextEditor = () => {
@@ -33,12 +37,18 @@ export const TextEditor = () => {
       }),
       TableRow,
       TableCell,
+      TableHeader,
       Heading.configure({
         levels: [1, 2, 3],
       }),
       BulletList,
       OrderedList,
       ListItem,
+      TextAlign.configure({
+        types: ['heading', 'paragraph'], // Tipos de nodos que soportan alineación
+      }),
+      CodeBlock,
+      Blockquote,
     ],
     content: '<p>¡Comienza a editar!</p>',
   });
@@ -63,3 +73,4 @@ export const TextEditor = () => {
     </div>
   );
 };
+
