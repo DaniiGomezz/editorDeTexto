@@ -1,0 +1,28 @@
+/* CSS para el menú desplegable de plantillas */
+.select-container {
+    margin: 20px 0;
+  }
+  
+  .select-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block; /* Cambiar a bloque para que ocupe todo el ancho */
+  }
+  
+  .custom-select {
+    width: 30%; /* Ocupar todo el ancho disponible */
+    color: #000000;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc; /* Borde más suave */
+    border-radius: 4px;
+    background-color: #f9f9f9; /* Fondo claro */
+    transition: border-color 0.3s;
+  }
+  
+  .custom-select:focus {
+    border-color: #000000; /* Borde azul al enfocar */
+    outline: none; /* Sin outline por defecto */
+  }
+  
